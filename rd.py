@@ -5,12 +5,12 @@ class RD:
     def next_concentration(cls, conc, reac, diff, dt, dx):
         next_conc = np.empty(conc.shape)
         for i in range(conc.size):
-            if(i == 0):
+            if i == 0:
                 next_conc[i] = conc[i] \
                                + 0.5 * dt / dx**2 \
                                * (diff[i+1] + diff[i]) * (conc[i+1] - conc[i]) \
                                + reac[i] * dt
-            elif(i == conc.size-1):
+            elif i == conc.size-1:
                 next_conc[i] = 0
             else:
                 next_conc[i] = conc[i] \
